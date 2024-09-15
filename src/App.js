@@ -1,24 +1,40 @@
-import logo from './logo.svg';
 import './App.css';
+import { useSelector } from 'react-redux';
+import ClipLoader from "react-spinners/ClipLoader";
+import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import TaskMainApp from './Components/task-management/TaskMainApp';
+import TaskDetails from './Components/task-management/TaskDetails';
 
 function App() {
+  const isLoading = useSelector((state) => state.loader.isLoading)
+  const override = {
+    display: "block",
+    margin: "0 auto",
+    borderColor: "red",
+  };
+  console.warn(isLoading);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>
+        <Routes>
+          <Route path="/" element={<TaskMainApp />} />
+          <Route path="/task/:id" element={<TaskDetails />} />
+        </Routes>
+        <ToastContainer />
+      </div>
+      {isLoading && <ClipLoader
+        color={"#ffffff"}
+        loading={isLoading}
+        cssOverride={override}
+        size={100}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />}
+    </>
   );
 }
 
