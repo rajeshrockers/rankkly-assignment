@@ -24,7 +24,7 @@ export const TaskListItem = ({
                                 </Link>
                             </div>
                             <div className='mobile-header-name'>
-                                <h1 style={{ textAlign: 'center' }}>Status</h1>
+                                <h1>Status</h1>
                                 <h2 style={renderDynamicStatusCss(item)}>
                                     {handleRenderStatus(item)}
                                 </h2>

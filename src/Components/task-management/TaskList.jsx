@@ -23,7 +23,7 @@ const TaskList = ({
                     <li>
                         <div className='tasks-list-header'>
                             <h1>Task Name</h1>
-                            <h1 style={{ textAlign: 'center' }}>Status</h1>
+                            <h1>Status</h1>
                             <h1>Action</h1>
                             <h1>Change Status</h1>
                         </div>
