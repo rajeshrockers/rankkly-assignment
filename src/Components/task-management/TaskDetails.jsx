@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import { startLoading, stopLoading } from '../../redux/feature/loaderSlice';
+import APIPATH from '../../constants/api';
 
 const TaskDetails = () => {
     let { id } = useParams();
@@ -14,7 +15,7 @@ const TaskDetails = () => {
         const fetchTaskDetails = async () => {
             try {
                 dispatch(startLoading()); // Stop the loader
-                const response = await axios.get(`https://dummyjson.com/todos/${id}`)
+                const response = await axios.get(`${APIPATH.TASK_DETAILS}${id}`)
                 setTaskDetail(response?.data)
             } catch (error) {
                 console.error('Error fetching task data:', error);
