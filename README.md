@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Getting Started with Rankkly Todo App
 
 This project contains the code for rankkly company assignment, this project is running on react v18.3.1 and i am using the node version 18.15.0.
 
